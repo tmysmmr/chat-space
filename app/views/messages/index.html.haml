@@ -1,0 +1,48 @@
+.wrapper
+  グループを作成しました
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        tmysmmr
+      %ul.side-header__box__menu
+        = link_to "/groups/new", class: "side-header__box__menu__new-group" do
+          %i.fa.fa-edit
+        = link_to "/user/edit", class: "side-header__box__menu__edit-user" do
+          %i.fa.fa-cog
+  .groups
+    .group
+      %p.group__group-name
+        tech56
+      %p.group__latest-message
+        DB設計中  
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2.main-header__left-box__current-group
+        tech56
+      %ul.main-header__left-box__member-list
+        Member : 
+        %li.main-header__left-box__member-list__member
+          test
+    .main-header__edit-btn
+      Edit
+  .messages
+    .message
+      .message__upper-info
+        %p.message__upper-info__talker
+          tmysmmr
+        %p.message__upper-info__date
+          2019/08/11(Sun) 15:55:24
+      %p.message__text
+        DB設計中...
+  .form
+    %form.new_message
+      .input-box
+        .input-box__text
+          type a message
+        .input-box__image
+          %i.fa.fa-image
+          .input-box__image__file
+      .submit-btn
+        Send
