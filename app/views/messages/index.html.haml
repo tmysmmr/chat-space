@@ -6,29 +6,31 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          tech56
+          = @group.name
         %ul.main-header__left-box__member-list
           Member : 
           %li.main-header__left-box__member-list__member
-            test
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
       .main-header__edit-btn
-        -# = link_to 'Edit', edit_group_path(:id)
+        Edit
+        -# = link_to edit_group_path(@group.id) do
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            tmysmmr
-          %p.message__upper-info__date
-            2019/08/11(Sun) 15:55:24
-        %p.message__text
-          DB設計中...
+      = render @messages
     .form
-      %form.new_message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
         .input-box
-          .input-box__text
-            type a message
-          .input-box__image
-            = fa_icon 'image'
-            .input-box__image__file
-        .submit-btn
-          Send
+          = f.label :image, class: 'input-box' do
+            = fa_icon 'picture-o', class: 'input-box__image'
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
+      -# %form.new_message
+      -#   .input-box
+      -#     .input-box__text
+      -#       type a message
+      -#     .input-box__image
+      -#       = fa_icon 'image'
+      -#       .input-box__image__file
+      -#   .submit-btn
+      -#     Send

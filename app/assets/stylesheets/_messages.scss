@@ -139,16 +139,17 @@
         display: flex;
         .input-box {
           position: relative;
-          width: 100%;
+          width: 517px;
           height: 50px;
           background-color: $mainWhiteColor;
+          input {
+            visibility: hidden;
+          }
           &__text {
             width: 100%;
             height: 50px;
-            padding: 0 10px;
+            padding: 0 40px 0 10px;
             border-style: none;
-            display: table-cell;
-            vertical-align: middle;
             color: #434a54;
           }
           &__image {
@@ -165,11 +166,11 @@
         .submit-btn {
           width: 100px;
           height: 50px;
+          padding: 0 30px;
           margin-left: 15px;
           background-color: #38aef0;
           color: $mainWhiteColor;
           cursor: pointer;
-          line-height: 50px;
           text-align: center;
         }
       }
