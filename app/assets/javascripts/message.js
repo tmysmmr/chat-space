@@ -33,7 +33,7 @@ $(function() {
       processData: false,
       contentType: false
     })
-    .done(function(data){
+    .done(function(message){
       var html = buildHTML(data);
       //htmlという変数にcreate.json.jbuilderのデータを代入する
       $('.messages').append(html);
