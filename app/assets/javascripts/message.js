@@ -34,7 +34,7 @@ $(function() {
       contentType: false
     })
     .done(function(message){
-      var html = buildHTML(data);
+      var html = buildHTML(message);
       //htmlという変数にcreate.json.jbuilderのデータを代入する
       $('.messages').append(html);
       //appendメソッドとは？→$(‘セレクタ’).append(‘追加するもの’);
@@ -42,8 +42,7 @@ $(function() {
       //propメソッドとは？→$('セレクタ').prop('プロパティ名');
       //disabled属性をfalseにするとこによってSendボタンが2回目以降も有効になる
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
-      $('.input-box__text').val('')
-      $('.input-box__image__file').val('')
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       //サーバーエラー(通信に失敗した時)fail関数が呼ばれる
